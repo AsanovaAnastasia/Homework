@@ -3,13 +3,13 @@
 // // 782 -> 8
 // // 918 -> 1
 
-// Console.WriteLine("Введите трехзначное число: ");
-// int num = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите трехзначное число: ");
+int num = Convert.ToInt32(Console.ReadLine());
 
-// int x = num/10;
-// num = x%10;
+int x = num/10;
+num = x%10;
 
-// Console.WriteLine($"{num} - вторая цифра введенного числа");
+Console.WriteLine($"{num} - вторая цифра введенного числа");
 
 
 // Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
@@ -53,6 +53,27 @@ else
     Console.WriteLine("Такого дня недели нет");
 }
 
+
+
+// Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+// 645 -> 5
+// 78 -> третьей цифры нет
+// 32679 -> 6
+
+Console.WriteLine("Введите число: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+while (num > 999){
+    num = num / 10;
+}
+if (num >= 100) 
+    {
+    num = num % 10;
+    Console.WriteLine($"Третья цифра числа : {num}");
+}
+else if(num < 100) {
+    Console.WriteLine("Третьей цифры во введенном числе нет");
+}
 
 
 
