@@ -34,6 +34,30 @@ while (num > 0)
 Console.WriteLine($"Сумма цифр введенного числа равна {sum}");
 
 
+// ИЛИ
+
+Console.WriteLine("Введите число: ");
+int num =Convert.ToInt32(Console.ReadLine());
+
+void sum(int summa)
+{
+    summa = 0;
+    int temp = 0;
+
+    while (num > 0)
+    {
+        temp = num % 10;
+        num = num / 10;
+        summa += temp;
+    }
+    Console.WriteLine($"Сумма цифр введенного числа равна {summa}");
+}
+
+
+sum(num);
+
+
+
 
 
 // Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
