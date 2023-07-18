@@ -48,3 +48,34 @@ for (int i = 0; i < n; i++)
     nums[i] = new Random().Next();
     Console.Write($"{nums[i]} ");
 }
+
+
+// ИЛИ
+
+void Fill(int[] numbers)
+{
+    int n = numbers.Length;
+    int i = 0;
+    while (i < n)
+    {
+        numbers[i] = new Random().Next();
+        i++;
+    }
+}
+
+
+void Print(int[] nums)
+{
+    int n = nums.Length;
+    int i = 0;
+    while (i < n)
+    {
+        Console.Write(nums[i] + " ");
+        i++;
+    }
+}
+int[] array = new int[8];
+
+Fill(array);
+Print(array);
+
