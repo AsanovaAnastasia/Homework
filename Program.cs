@@ -41,3 +41,80 @@ nums = array(nums);
 
 Console.WriteLine();
 Print(nums);
+
+
+
+
+
+
+// Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+// и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 17 -> такого числа в массиве нет
+
+Console.WriteLine("Введите количество строк:");
+int strgs = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов:");
+int columns = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+
+int[,] nums = new int[strgs, columns];
+
+void Fill(int[,] nums)
+{
+
+    for (int i = 0; i < strgs; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            nums[i, j] = Convert.ToInt32(new Random().Next(10));
+        }
+    }
+}
+
+void Print(int[,] nums)
+{
+    for (int i = 0; i < strgs; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            Console.Write(nums[i, j] + "    ");
+        }
+        Console.WriteLine();
+    }
+}
+Fill(nums);
+Print(nums);
+Console.WriteLine();
+
+
+Console.WriteLine("Введите номер строчки: ");
+int strPos = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите номер столбика: ");
+int colPos = Convert.ToInt32(Console.ReadLine());
+
+
+void FindNum(int[,] nums)
+{
+    if (strPos<0 || strPos > nums.GetLength(0)){
+        Console.WriteLine("Такой строчки нет");
+    }
+    else if (colPos< 0 || colPos > nums.GetLength(1))
+    {
+        Console.WriteLine("Такого столбика нет.");
+    }
+    else { Console.WriteLine($"{nums[strPos - 1, colPos - 1]} - это {strPos} элемент в {colPos} столбике"); }
+}
+
+
+
+Console.WriteLine();
+FindNum(nums);
+
+
+
+
