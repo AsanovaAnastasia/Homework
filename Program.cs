@@ -118,3 +118,70 @@ FindNum(nums);
 
 
 
+// Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+Console.WriteLine("Введите количество строк:");
+int strgs = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов:");
+int columns = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+
+int[,] nums = new int[strgs, columns];
+
+void Fill(int[,] nums)
+{
+
+    for (int i = 0; i < strgs; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            nums[i, j] = Convert.ToInt32(new Random().Next(10));
+        }
+    }
+}
+
+void Print(int[,] nums)
+{
+    for (int i = 0; i < strgs; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            Console.Write(nums[i, j] + "    ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void Arifm(int[,] nums, double temp)
+{
+    for (int j = 0; j < nums.GetLength(1); j++)
+    {
+        temp = 0;
+        for (int i = 0; i < nums.GetLength(0); i++)
+
+        {
+            temp += nums[i, j];
+        }
+        temp = Math.Round(temp/strgs,2);
+        Console.Write(temp + "            ");
+
+    }
+
+}
+
+
+Fill(nums);
+Print(nums);
+
+Console.WriteLine();
+Arifm(nums, 1);
+
+
+
+
