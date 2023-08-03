@@ -136,3 +136,73 @@ void Arifm(int[,] nums)
 Arifm(nums);
 
 
+// Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+
+Console.WriteLine("Введите количество строк первой матрицы: ");
+int str1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите количество столбиков первой матрицы: ");
+int col1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите количество строк второй матрицы: ");
+int str2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите количество столбиков второй матрицы: ");
+int col2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+
+int[,] matrix1 = new int[str1, col1];
+int[,] matrix2 = new int[str2, col2];
+int[,] result = new int[str1, col2];
+
+void Fill(int[,] nums)
+{
+
+    for (int i = 0; i < nums.GetLength(0); i++)
+    {
+        for (int j = 0; j < nums.GetLength(1); j++)
+        {
+           nums[i, j] = Convert.ToInt32(new Random().Next(10));
+        }
+    }
+}
+
+void Print(int[,] nums)
+{
+    for (int i = 0; i < nums.GetLength(0); i++)
+    {
+        for (int j = 0; j < nums.GetLength(1); j++)
+        {
+            Console.Write(nums[i, j] + "    ");
+        }
+        Console.WriteLine();
+    }
+}
+Fill(matrix1);
+Print(matrix1);
+Console.WriteLine();
+Fill(matrix2);
+Print(matrix2);
+Console.WriteLine();
+
+
+void Product(int[,] matrix1, int[,] matrix2, int[,] result)
+{
+    for (int i = 0; i < result.GetLength(0); i++)
+    {
+        for (int j = 0; j < result.GetLength(1); j++)
+        {
+            int sum = 0;
+            for (int k = 0; k < matrix1.GetLength(1); k++)
+            {
+                sum += (matrix1[i, k] * matrix2[k, j]);
+            }
+            result[i, j] = sum;
+        }
+    }
+}
+Product(matrix1,matrix2,result);
+Print(result);
