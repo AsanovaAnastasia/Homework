@@ -15,9 +15,9 @@ bill = [randint(1, 10) for _ in range(shrub)]
 max_num = 0
 
 for i in range(len(bill)):
-    berry = bill[i] + bill[i - 1] + bill[i - 2]
-    if berry > max_num:
-        max_num = berry
+    num = bill[i] + bill[i - 1] + bill[i - 2]
+    if num > max_num:
+        max_num = num
 print(bill)
 print(max_num)
 
